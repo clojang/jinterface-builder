@@ -1,5 +1,8 @@
+
+jinterface-local: build-jinterface
+	cd $(JINTERFACE_BUILD) && lein install
+
 show-versions:
-	@echo Project: $(PROJ), $(PROJ_VERSION)
 	@echo Erlang: $(ERL_VERSION)
 	@echo JInterface: $(JINTERFACE_VER)
 	@echo Clojure: $(CLOJURE_VER)
@@ -13,6 +16,9 @@ else
 endif
 
 build-jinterface: clean-jinterface-build
+	@echo
+	@echo "Building JInterface $(JINTERFACE_VER) against Erlang $(ERL_VERSION) ..."
+	@echo
 	mkdir -p $(JINTERFACE_BUILD)/src
 	cp -r $(ERL_LIBS)/lib/jinterface-$(JINTERFACE_VER)/java_src \
 	 $(JINTERFACE_BUILD)/src/java
@@ -24,5 +30,3 @@ build-jinterface: clean-jinterface-build
 jinterface: build-jinterface
 	cd $(JINTERFACE_BUILD) && lein deploy clojars
 
-jinterface-local: build-jinterface
-	cd $(JINTERFACE_BUILD) && lein install
