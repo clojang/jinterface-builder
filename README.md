@@ -26,7 +26,7 @@ In fact, getting Erlang, JInterface, and Clojure working together can be tricky 
 
 We've tried to help out with this by publishing what, so far, seem to be working JInterface ``.jar`` files on Clojars. They are available here:
 
-* [org.erlang.otp/jinterface](https://clojars.org/org.erlang.otp/jinterface-builder)
+* [org.erlang.otp/jinterface](https://clojars.org/org.erlang.otp/jinterface)
 
 We don't yet have automated builds and testing set up for all of those, so [feedback is welcome](https://github.com/clojang/jinterface-builder/issues/new).
 
