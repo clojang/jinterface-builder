@@ -1,210 +1,111 @@
-# jiface [![Build Status][travis-badge]][travis][![Clojars Project][clojars-badge]][clojars]
+# jinterface-builder [![Clojars Project][clojars-badge]][clojars]
 
 [![Clojang logo][clojang-logo]][clojang-logo-large]
 
-
-*Erlang's JInterface in Idiomatic Clojure*
+*The means by which Clojang projects generate new JInterface releases to
+Clojars*
 
 
 #### Contents
 
 * [Introduction](#introduction-)
 * [Dependencies](#dependencies-)
+* [A Note on Versions](#a-note-on-versions-)
 * [Building](#building-)
-* [Documentation](#documentation-)
-* [Usage](#usage-)
-* [Running Tests](#running-tests-)
-* [Erlang, Clojure, and JInterface](#erlang-clojure-and-jinterface-)
 * [License](#license-)
 
 
 ## Introduction [&#x219F;](#contents)
 
-This project provides a solution to the [aesthetic problem of JInterface](https://github.com/clojang/clojang/wiki/Example:-JInterface-in-Clojure). While JInterface is an invaluable tool for projects that need to have JVM and Erlang VM languages communicating with each other, it is rather verbose and cumbersom to do so in Clojure. The syntatical burden is often enough to discourage experimentation and play -- essential ingrediates for innovation. The primary goal of jiface is to make it not only easy to write for the Clojure/Erlang interface, but fun as well.
+The various [Clojang projects](https://github.com/clojang) use various versions
+of Erlang's JInterface Java library, depending upon the version of Erlang (see
+[the table below](#a-note-on-versions-) to check which versions of Erlang pair up with which versions of
+JInterface).
 
-**Low-level API**
+In fact, getting Erlang, JInterface, and Clojure working together can be tricky just for the simple fact that the JInterface ``.jar`` files available in various locations tend to be a mismatched mess.
 
-The first step towards that was to write a Clojure wrapper for JInterface -- a low-level one that is essentially identical to native JInterface. This will be useful for anyone from a functional programming background who wants low-level access to JInterface via idiomatic Clojure. This is the jiface project.
+We've tried to help out with this by publishing what, so far, seem to be working JInterface ``.jar`` files on Clojars. They are available here:
 
-**Mid-level API**
+* [org.erlang.otp/jinterface](https://clojars.org/org.erlang.otp/jinterface-builder)
 
-The second step was to use that low-level API to create a "mid-level" API, one that automatically performned the necessary type conversions of function parameters and returned results, allowing one to write the sort of Clojure one would normally do, without having to cast to Erlang types as is necessary in the low-level Clojure API. This work is captured in a separate project, [Clojang](https://github.com/clojang/clojang).
+We don't yet have automated builds and testing set up for all of those, so [feedback is welcome](https://github.com/clojang/jinterface-builder/issues/new).
 
-The mid-level Clojang API is intended for Clojure application developers who which to integrate with languages running on the Erlang VM without having to compromise on the Clojure side.
+To make this easier for devs to do themselves, the JInterface "builder" (a handful of ``make`` targets) has been released as its own project: this one.
+
+
+## A Note on Versions
+
+JInterface is only guaranteed to work with the version of Erlang with which it
+was released. The following version numbers are paired:
+
+| Erlang Release | Erlang Version (erts) | JInterface |
+|----------------|-----------------------|------------|
+| 18.3           | 7.3                   | 1.6.1      |
+| 18.2           | 7.2                   | 1.6.1      |
+| 18.1           | 7.1                   | 1.6        |
+| 18.0           | 7.0                   | 1.6        |
+| 17.5           | 6.4                   | 1.5.12     |
+| 17.4           | 6.3                   | 1.5.11     |
+| 17.3           | 6.2                   | 1.5.10     |
+| 17.2           | 6.1                   | 1.5.9      |
+| 17.1           | 6.1                   | 1.5.9      |
+| 17.0           | 6.0                   | 1.5.9      |
+| R16B03         | 5.10.4                | 1.5.8      |
+| R16B02         | 5.10.3                | 1.5.8      |
+| R16B01         | 5.10.2                | 1.5.8      |
+| R16B           | 5.10.1                | 1.5.8      |
+| R15B03         | 5.9.3                 | 1.5.6      |
+| R15B02         | 5.9.2                 | 1.5.6      |
+| R15B01         | 5.9.1                 | 1.5.6      |
+| R15B           | 5.9                   | 1.5.5      |
+
+A convenience target is provided to display the versions that will be used to build JInterface:
+
+```bash
+$ make show-versions
+```
 
 
 ## Dependencies [&#x219F;](#contents)
 
 * Java
+* Maven
+* ``lein``
 * Erlang
-* lein
+* GNU ``make``
 
 
 ## Building [&#x219F;](#contents)
 
-``rebar3`` is used for the top-level builds of the project. It runs ``lein`` under the covers in order to build the Clojure code and create the jiface``.jar`` file. As such, to build everything -- LFE, Erlang, and Clojure -- you need only do the following:
+To ensure that your version of JInterface is ready for use by Clojure with your
+version of Erlang, simply do this:
 
-* ``rebar3 compile``
-
-If you wish to build your own JInterface ``.jar`` file and not use the one we've uploaded to Clojars, you'll need to follow the instrucations given in the documentation here:
-
-* [Building JInterface for Clojure](http://clojang.github.io/jiface/current/80-building-jinterface.html)
-
-
-## Documentation [&#x219F;](#contents)
-
-Project documentation, including jiface API reference docs, Javadocs for JInterface, and the Erlang JInterface User's Guide, is availble here:
-
-* [http://clojang.github.io/jiface/current/](http://clojang.github.io/jiface/current/)
-
-Quick links for the other docs:
-
-* [jiface User Guides](http://clojang.github.io/jiface/current/10-low-level.html) - A translation of the *JInterface User's Guide* (Erlang documantaion) from Java into Clojure
-* [JInterface User's Guide](http://clojang.github.io/jiface/current/erlang/jinterface_users_guide.html) - The JInterface documentation provided in Erlang distributions
-* [Jinterface Javadocs](http://clojang.github.io/jiface/current/erlang/java) - Javadoc-generated API documentation built from the JInterface source code
-
-Mid-level API docs:
-
-* [Clojang User Guides](http://clojang.github.io/clojang/current/10-low-level.html) - An adaptation of the *jiface User's Guide* for the mid-level idiomatic Clojure API
-
-
-## Usage [&#x219F;](#contents)
-
-Using jiface in a project is just like any other Clojure library. Just add the following to the ``:dependencies`` in your ``project.clj`` file:
-
-[![Clojars Project](https://img.shields.io/clojars/v/clojang/jiface.svg)](https://clojars.org/clojang/jiface)
-
-For the Erlang/LFE side of things, you just need to add the Github URL to your ``rebar.config`` file, as with any other rebar-based Erlang VM project.
-
-As for actual code usage, the documentation section provides links to developer guides and API references, but below is quick example.
-
-Start LFE in distributed mode:
-
-```
-$ lfe -sname clojang-lfe
-Erlang/OTP 18 [erts-7.3] [source] [64-bit] [smp:4:4] [async-threads:10] ...
-
-   ..-~.~_~---..
-  (      \\     )    |   A Lisp-2+ on the Erlang VM
-  |`-.._/_\\_.-';    |   Type (help) for usage info.
-  |         g (_ \   |
-  |        n    | |  |   Docs: http://docs.lfe.io/
-  (       a    / /   |   Source: http://github.com/rvirding/lfe
-   \     l    (_/    |
-    \   r     /      |   LFE v0.11.0-dev (abort with ^G)
-     `-E___.-'
-
-(clojang-lfe@mndltl01)>
-```
-
-Then start up a jiface Clojure REPL:
-
-```
-$ lein repl
-```
-
-And paste the following:
-
-```clj
-(require '[jiface.otp.messaging :as messaging]
-         '[jiface.otp.nodes :as nodes]
-         '[jiface.erlang.types :as types]
-         '[jiface.erlang.tuple :as tuple-type])
-(def node (nodes/node "gurka"))
-(def mbox (messaging/mbox node))
-(messaging/register-name mbox "echo")
-(def msg (into-array
-           (types/object)
-           [(messaging/self mbox)
-            (types/atom "hello, world")]))
-(messaging/! mbox "echo" "gurka" (types/tuple msg))
-(messaging/receive mbox)
-```
-
-When you paste the ``receive`` function, you'll get something like this:
-
-```clj
-#object[com.ericsson.otp.erlang.OtpErlangTuple
-        0x4c9e3fa6
-        "{#Pid<gurka@mndltl01.1.0>,'hello, world'}"]
-```
-
-In the LFE REPL, you can send a message to your new Clojure node:
-
-```cl
-(lfe@mndltl01)> (! #(echo gurka@mndltl01) `#(,(self) hej!))
-#(<0.35.0> hej!)
-```
-
-Then back in Clojure, check the sent message and send a response:
-
-```clojure
-(def data (messaging/receive mbox))
-(def lfe-pid (tuple-type/get-element data 0))
-(messaging/! mbox lfe-pid (types/tuple msg))
-```
-
-Then, back in LFE, flush the REPL's process mbox to see what has been sent to it:
-
-```cl
-(lfe@mndltl01)> (c:flush)
-Shell got {<5926.1.0>,'hello, world'}
-ok
-```
-
-
-## Running Tests [&#x219F;](#contents)
-
-All the tests may be run with just one command:
 
 ```bash
-$ rebar3 eunit
+$ make
 ```
 
-This will not only run Erlang and LFE unit tests, it also runs the Clojure unit tests for jiface.
+(Which points to the the ``jinterface-local`` target.)
 
-**Clojure Test Selectors**
+This will discover the Erlang root directory for the first ``erl`` found in your
+``PATH``. This will be used to find the JInterface Java source files for that version
+of Erlang.
 
-If you would like to be more selective in the types of jiface tests which get run, you may be interested in reading this section.
-
-The jiface tests use metadata annotations to indicate whether they are unit, system, or integration tests. to run just the unit tests, you can do any one of the following, depending upon what you're used to:
+If you wish to override this, you may do the following:
 
 ```bash
-$ lein test
-$ lein test :unit
-$ lein test :default
+$ make ERL_LIBS=/opt/erlang/15.3.1
 ```
 
-To run just the system tests:
-
-```bash
-$ lein test :system
-```
-
-And, similarly, just the integration tests:
-
-```bash
-$ lein test :integtration
-```
-
-To run everything:
-
-```bash
-$ lein test :all
-```
-
-This is what is used by the ``rebar3`` configuration to run the jiface tests.
-
-
-## Erlang, Clojure, and JInterface [&#x219F;](#contents)
-
-If you are interested in building your own JInterface ``.jar`` file for use with a Clojure project, be sure fo check out the page [Building JInterface for Clojure](https://clojang.github.io/jiface/current/80-building-jinterface.html) on the jiface docs site.
+This ``make`` target (which depends upon Maven being installed) will
+generate a ``lein``-friendly ``.jar`` file for you in your
+``~/.m2/repository`` directory, just like ``lein`` does with downloaded Clojars.
 
 
 ## License [&#x219F;](#contents)
 
 ```
-Copyright © 2015-2016 Duncan McGreggor
+Copyright © 2016 Duncan McGreggor
 
 Distributed under the Apache License Version 2.0.
 ```
@@ -212,9 +113,9 @@ Distributed under the Apache License Version 2.0.
 
 <!-- Named page links below: /-->
 
-[travis]: https://travis-ci.org/clojang/jiface
-[travis-badge]: https://travis-ci.org/clojang/jiface.png?branch=master
+[travis]: https://travis-ci.org/clojang/jinterface-builder
+[travis-badge]: https://travis-ci.org/clojang/jinterface-builder.png?branch=master
 [clojang-logo]: resources/images/clojang-logo-250x.png
 [clojang-logo-large]: resources/images/clojang-logo-1000x.png
-[clojars]: https://clojars.org/clojang/jiface
-[clojars-badge]: https://img.shields.io/clojars/v/clojang/jiface.svg
+[clojars]: https://clojars.org/org.erlang.otp/jinterface
+[clojars-badge]: https://img.shields.io/clojars/v/org.erlang.otp/jinterface.svg
