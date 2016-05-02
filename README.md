@@ -33,7 +33,7 @@ We don't yet have automated builds and testing set up for all of those, so [feed
 To make this easier for devs to do themselves, the JInterface "builder" (a handful of ``make`` targets) has been released as its own project: this one.
 
 
-## A Note on Versions
+## A Note on Versions [&#x219F;](#contents)
 
 JInterface is only guaranteed to work with the version of Erlang with which it
 was released. The following version numbers are paired:
