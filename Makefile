@@ -5,10 +5,6 @@ JINTERFACE_VER := $(strip $(subst \", , $(word 2, $(subst -, , $(JINTERFACE)))))
 JINTERFACE_JAR := jinterface-$(JINTERFACE_VER).jar
 JINTERFACE_BUILD := /tmp/jinterface/$(JINTERFACE_VER)
 JINTERFACE_FILES := $(ERL_LIBS)/lib/jinterface-$(JINTERFACE_VER)/java_src/com/ericsson/otp/erlang/*.java
-CLOJURE_DEP := $(strip $(shell grep "org.clojure/clojure" project.clj))
-CLOJURE_VER := $(subst ], , $(word 3, $(CLOJURE_DEP)))
-JAR := $(PROJ)-$(VERSION).jar
-UBERJAR := $(PROJ)-$(VERSION)-standalone.jar
 LOCAL_MAVEN := ~/.m2/repository
 
 include resources/make/jinterface.mk

@@ -1,11 +1,9 @@
-
 jinterface-local: build-jinterface
 	cd $(JINTERFACE_BUILD) && lein install
 
 show-versions:
 	@echo Erlang: $(ERL_VERSION)
 	@echo JInterface: $(JINTERFACE_VER)
-	@echo Clojure: $(CLOJURE_VER)
 	@echo lein/JVM: $(shell lein version)
 
 clean-jinterface-build:
