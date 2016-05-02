@@ -2,6 +2,7 @@ jinterface-local: build-jinterface
 	cd $(JINTERFACE_BUILD) && lein install
 
 show-versions:
+	@echo $(PROJ): $(PROJ_VERSION)
 	@echo Erlang: $(ERL_VERSION)
 	@echo JInterface: $(JINTERFACE_VER)
 	@echo lein/JVM: $(shell lein version)

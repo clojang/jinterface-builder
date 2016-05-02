@@ -1,3 +1,5 @@
+PROJ = jinterface-builder
+PROJ_VERSION = 0.2.0
 ERL_VERSION := $(shell erl -eval "io:format(erlang:system_info(system_version)),halt()" -noshell)
 ERL_LIBS := $(shell erl -eval "io:format(code:root_dir()),halt()" -noshell)
 JINTERFACE := $(shell ls -1 $(ERL_LIBS)/lib/|grep jinterface)
