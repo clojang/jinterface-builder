@@ -22,13 +22,13 @@ of Erlang's JInterface Java library, depending upon the version of Erlang (see
 [the table below](#a-note-on-versions-) to check which versions of Erlang pair up with which versions of
 JInterface).
 
-In fact, getting Erlang, JInterface, and Clojure working together can be tricky just for the simple fact that the JInterface ``.jar`` files available in various locations tend to be a mismatched mess.
+In fact, getting Erlang, JInterface, and Clojure working together can be tricky just for the simple fact that the JInterface ``.jar`` files available in various locations online can be mismatched with the intended version of Erlang (or not built properly).
 
-We've tried to help out with this by publishing what, so far, seem to be working JInterface ``.jar`` files on Clojars. They are available here:
+Due to the problems we have encountered in running Clojure/BEAM applications with the available JInterface ``.jar`` files on Clojars, we needed a reliable solution. After the good results, we wanted to help out by publishing what, so far, seem to be working JInterface ``.jar`` files on Clojars. They are available here:
 
 * [org.erlang.otp/jinterface](https://clojars.org/org.erlang.otp/jinterface)
 
-We don't yet have automated builds and testing set up for all of those, so [feedback is welcome](https://github.com/clojang/jinterface-builder/issues/new).
+(Note that we don't yet have automated builds and testing set up for those; [feedback/assistance is welcome](https://github.com/clojang/jinterface-builder/issues/new)).
 
 To make this easier for devs to do themselves, the JInterface "builder" (a handful of ``make`` targets) has been released as its own project: this one.
 
