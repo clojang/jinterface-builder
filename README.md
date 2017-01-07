@@ -37,7 +37,7 @@ To make this easier for devs to do themselves, the JInterface "builder" (a handf
 ## A Note on Versions [&#x219F;](#contents)
 
 JInterface is only guaranteed to work with the version of Erlang with which it
-was released. The following version numbers are paired:
+was released. The following table correlates version numbers:
 
 | Erlang Release | Erlang Version (erts) | JInterface |
 |----------------|-----------------------|------------|
