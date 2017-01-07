@@ -1,9 +1,10 @@
-# jinterface-builder [![Clojars Project][clojars-badge]][clojars]
+# jinterface-builder
 
-[![Clojang logo][clojang-logo]][clojang-logo-large]
+[![Clojars Project][clojars-badge]][clojars]
 
-*The means by which Clojang projects generate new JInterface releases to
-Clojars*
+*The means by which Clojang projects generate new JInterface releases to Clojars*
+
+[![Clojang logo][logo]][logo-large]
 
 
 #### Contents
@@ -126,7 +127,7 @@ Distributed under the Apache License Version 2.0.
 
 [travis]: https://travis-ci.org/clojang/jinterface-builder
 [travis-badge]: https://travis-ci.org/clojang/jinterface-builder.png?branch=master
-[clojang-logo]: resources/images/clojang-logo-250x.png
-[clojang-logo-large]: resources/images/clojang-logo-1000x.png
+[logo]: https://github.com/clojang/resources/blob/master/images/logo-5-250x.png
+[logo-large]: https://github.com/clojang/resources/blob/master/images/logo-5-1000x.png
 [clojars]: https://clojars.org/org.erlang.otp/jinterface
 [clojars-badge]: https://img.shields.io/clojars/v/org.erlang.otp/jinterface.svg
