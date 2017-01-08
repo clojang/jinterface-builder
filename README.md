@@ -41,6 +41,9 @@ was released. The following table correlates version numbers:
 
 | Erlang Release | Erlang Version (erts) | JInterface |
 |----------------|-----------------------|------------|
+| 19.2           | 8.2                   | 1.7.1      |
+| 19.1           | 8.1                   | 1.7.1      |
+| 19.0           | 8.0                   | 1.7        |
 | 18.3           | 7.3                   | 1.6.1      |
 | 18.2           | 7.2                   | 1.6.1      |
 | 18.1           | 7.1                   | 1.6        |
