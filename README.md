@@ -69,14 +69,14 @@ A convenience target is provided to display the versions that will be used to bu
 $ make show-versions
 ```
 
-Here is the list of versions we've published on Clojars to date (also [availble here](https://clojars.org/org.erlang.otp/jinterface/versions)):
+Here is the list of versions we've published on Clojars to date (also [availble here](https://clojars.org/clojang/erlang-jinterface/versions)):
 
+* 1.7.1
+* 1.7
 * 1.6.1
-* 1.6
 * 1.5.12
 * 1.5.8
 * 1.5.6
-* 1.5.3
 
 If you would like to use a version not yet uploaded to Clojars, let us know (i.e., [open a ticket](https://github.com/clojang/jinterface-builder/issues/new)), and we'll see what we can do to get you sorted.
 
