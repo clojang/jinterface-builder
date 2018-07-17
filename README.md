@@ -135,5 +135,5 @@ Distributed under the Apache License Version 2.0.
 [travis-badge]: https://travis-ci.org/clojang/jinterface-builder.png?branch=master
 [logo]: https://github.com/clojang/resources/blob/master/images/logo-5-250x.png
 [logo-large]: https://github.com/clojang/resources/blob/master/images/logo-5-1000x.png
-[clojars]: https://clojars.org/org.erlang.otp/jinterface
-[clojars-badge]: https://img.shields.io/clojars/v/org.erlang.otp/jinterface.svg
+[clojars]: https://clojars.org/clojang/erlang-jinterface
+[clojars-badge]: https://img.shields.io/clojars/v/clojang/erlang-jinterface.svg
