@@ -125,7 +125,9 @@ generate a ``lein``-friendly ``.jar`` file for you in your
 ## License [&#x219F;](#contents)
 
 ```
-Copyright © 2016-2018 Duncan McGreggor
+Copyright © 2018 The Clojang Project
+
+Copyright © 2016-2017 Duncan McGreggor
 
 Distributed under the Apache License Version 2.0.
 ```
