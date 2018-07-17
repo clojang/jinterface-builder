@@ -27,7 +27,7 @@ In fact, getting Erlang, JInterface, and Clojure working together can be tricky 
 
 Due to the problems we have encountered in running Clojure/BEAM applications with the available JInterface ``.jar`` files on Clojars, we needed a reliable solution. After the good results, we wanted to help out by publishing what, so far, seem to be working JInterface ``.jar`` files on Clojars. They are available here:
 
-* [org.erlang.otp/jinterface](https://clojars.org/org.erlang.otp/jinterface)
+* [clojang/erlang-jinterface](https://clojars.org/clojang/erlang-jinterface)
 
 (Note that we don't yet have automated builds and testing set up for those; [feedback/assistance is welcome](https://github.com/clojang/jinterface-builder/issues/new)).
 
@@ -41,6 +41,9 @@ was released. The following table correlates version numbers:
 
 | Erlang Release | Erlang Version (erts) | JInterface |
 |----------------|-----------------------|------------|
+| 21.0           | 10                    | 1.9        |
+| 20.3           | 9.3                   | 1.8.1      |
+| 19.3           | 8.3                   | 1.7.1      |
 | 19.2           | 8.2                   | 1.7.1      |
 | 19.1           | 8.1                   | 1.7.1      |
 | 19.0           | 8.0                   | 1.7        |
