@@ -74,6 +74,8 @@ $ make show-versions
 
 Here is the list of versions we've published on Clojars to date (also [availble here](https://clojars.org/clojang/erlang-jinterface/versions)):
 
+* 1.9
+* 1.8.1
 * 1.7.1
 * 1.7
 * 1.6.1
