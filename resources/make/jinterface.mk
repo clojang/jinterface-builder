@@ -20,4 +20,7 @@ else
 	rm -rf $(JINTERFACE_BUILD)
 endif
 
+clojars:
+	cd $(JINTERFACE_BUILD) && lein deploy clojars
+
 jinterface: build-jinterface clojars
