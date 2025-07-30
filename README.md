@@ -66,6 +66,8 @@ was released. The following table correlates version numbers:
 | R15B01         | 5.9.1                 | 1.5.6      |
 | R15B           | 5.9                   | 1.5.5      |
 
+For a version table of older releases, see [legacy versions](./docs/legacy-versions.md).
+
 A convenience target is provided to display the versions that will be used to build JInterface:
 
 ```bash
@@ -90,9 +92,10 @@ If you would like to use a version not yet uploaded to Clojars, let us know (i.e
 
 * Java
 * Maven
-* ``lein``
+* `lein`
+* `kerl` (optional but recommended, for building against different Erlang releases)
 * Erlang
-* GNU ``make``
+* GNU `make`
 
 
 ## Building [&#x219F;](#contents)
@@ -125,7 +128,7 @@ generate a ``lein``-friendly ``.jar`` file for you in your
 ## License [&#x219F;](#contents)
 
 ```
-Copyright © 2018 The Clojang Project
+Copyright © 2018-2025 The Clojang Project
 
 Copyright © 2016-2017 Duncan McGreggor
 
